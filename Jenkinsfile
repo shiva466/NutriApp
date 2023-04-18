@@ -4,7 +4,8 @@ agent any
 	tools {
 		maven "maven"
 	       }
-	
+	Stages
+	{
 		stage('scan pages')
 		{
 			steps
@@ -18,5 +19,5 @@ agent any
 				}
 			}
 		}	
-	 
+	}
 }
