@@ -6,10 +6,10 @@ stages
   {
    steps
     {
-    withMaven(maven:'Maven_home')
-    {
-    bat "mvn sonar:sonar"
-    }
+   withSonarQubeEnv(installationName: 'nutrisonar')
+    	{
+  		sh './mvnw clean sonar:sonar'
+    	}
 	}
   }
  } 
