@@ -8,12 +8,9 @@ agent any
 	{
 		stage('Maven install')
 		{
- 
 		      steps 
 			{
-        
         			git branch: 'main', url: 'https://github.com/shiva466/NutriApp.git'
- 
 			        withMaven(
           			maven: 'maven'
         			)
@@ -23,19 +20,16 @@ agent any
         				}
       			}
 		}
-		
 		stage('Mock Test') {
             steps {
                 sh 'mvn test -Dtest=ait.student.nutrition'
             }
         }
-		
 		 stage('Deploy') {
             steps {
                 sh 'mvn deploy'
             }
         }
-
 		stage('scan pages')
 		{
 			steps
@@ -48,7 +42,6 @@ agent any
 				}
 				}
 			}
-		}
-		
+		}	
 	} 
 }
