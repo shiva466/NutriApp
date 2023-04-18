@@ -9,9 +9,9 @@ agent any
 		{
 			steps
 			{
-				withSonarQubeEnv(installationName: 'nutrisonar')
+				withMaven(maven:'maven')
 				{
-					sh 'mvn clean sonar:sonar -Dsonar.host=http://localhost:9000 -Dsonar.login=jenkins-sonar'
+					bat "mvn sonar:sonar -Dsonar.host=http://localhost:9000 -Dsonar.login=jenkins-sonar"
 				}
 			}
 		}
