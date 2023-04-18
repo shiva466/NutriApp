@@ -1,21 +1,16 @@
 pipeline {
-agent { label 'linux' }
-options
-{
-buildDiscarder(logRotator(numToKeepStr: '5'))
-}
-
+agent any
 stages
   {
   stage('scan pages')
   {
    steps
     {
-	withSonarQubeEnv(installationName: 'nutrisonar')
-    	{
-  		sh './mvnw clean sonar:sonar'
-    	}
+    withMaven(maven:'Maven_home')
+    {
+    bat "mvn sonar:sonar"
     }
+	}
   }
  } 
 }
