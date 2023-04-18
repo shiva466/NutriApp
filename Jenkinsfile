@@ -8,6 +8,8 @@ stages
     {
    withSonarQubeEnv(installationName: 'nutrisonar')
     	{
+		sh 'pwd'
+		sh 'ls'
   		sh 'mvn clean sonar:sonar'
     	}
 	}
