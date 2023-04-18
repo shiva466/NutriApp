@@ -9,7 +9,7 @@ agent any
 		{
 			steps
 			{
-				withMaven(maven:'MVN_HOME')
+				withMaven(maven:'maven')
 				{
 					bat "mvn sonar:sonar"
 				}
