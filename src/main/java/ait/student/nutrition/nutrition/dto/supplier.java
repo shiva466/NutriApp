@@ -3,7 +3,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
+
 
 public class supplier {
 	@Id
@@ -15,9 +20,34 @@ public class supplier {
 	private String manufacting_cost;
 	private String selling_cost;
 	private String profit_gained;
-
+	public supplier()
+	{
+		
+	}
+	@JsonCreator
+	public supplier(@JsonProperty("Id") long Id,@JsonProperty("supplier_name") String supplier_name,@JsonProperty("item") String item,@JsonProperty("item_code") String item_code,@JsonProperty("manufacting_cost") String manufacting_cost,@JsonProperty("selling_cost") String selling_cost,@JsonProperty("profit_gained") String profit_gained) {
+		this.Id= Id; 
+		this.supplier_name = supplier_name; 
+		this.item = item; 
+		this.item_code =item_code; 
+		this.manufacting_cost = manufacting_cost; 
+		this.selling_cost = selling_cost;
+		this.profit_gained = profit_gained;
+	}
 	
-	  public Long getId() 
+	   
+	  
+	 
+	
+	/*
+	 * public supplier(long Id, String supplier_name, String item, String item_code,
+	 * String manufacting_cost, String selling_cost, String profit_gained) {
+	 * this.Id= Id; this.supplier_name = supplier_name; this.item = item;
+	 * this.item_code =item_code; this.manufacting_cost = manufacting_cost;
+	 * this.selling_cost = selling_cost; this.profit_gained = profit_gained; }
+	 */
+
+	public Long getId() 
 	  {
 		  return Id;
 	  } 

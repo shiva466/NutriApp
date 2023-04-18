@@ -8,6 +8,7 @@ class NutritionAppApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }

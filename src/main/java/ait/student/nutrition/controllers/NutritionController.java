@@ -34,14 +34,14 @@ public class NutritionController {
 	{
 		return repo.findAll(Sort.by("item").descending());
 	}
-	@RequestMapping(value = "/supplier/{id}", method = RequestMethod.GET) 
-	Optional<supplier> getApplication(@PathVariable("id") Long id) { 
-		return repo.findById(id); }
+	@RequestMapping(value = "/supplier/{id}", method = RequestMethod.GET)
+	public 
+	Optional<supplier> getApplication(@PathVariable("id") Long id) 
+	{ 
+		return repo.findById(id); 
+	}
 
 	@RequestMapping(value = "/supplierbycode/{item_code}",method = RequestMethod.GET) 
-	 // @GetMapping("/supplier/{item_code}") List<supplier>
-	  //List<supplier> getApplication(@PathVariable("item_code") String item_code)
-	//{ return  repo.findByItemCode(item_code);}
 	public List<supplier> getApplication(@PathVariable(value="item_code") String item_code) 
 	{
 		System.out.println(item_code);
@@ -49,9 +49,6 @@ public class NutritionController {
 	    return repo.findByItemCode(item_code);
 	}
 	@RequestMapping(value = "/suppliername/{supplier_name}",method = RequestMethod.GET) 
-	 // @GetMapping("/supplier/{item_code}") List<supplier>
-	  //List<supplier> getApplication(@PathVariable("item_code") String item_code)
-	//{ return  repo.findByItemCode(item_code);}
 	public List<supplier> getApplication1(@PathVariable(value="supplier_name") String supplier_name) 
 	{
 		System.out.println(supplier_name);
@@ -106,4 +103,5 @@ public class NutritionController {
 		// Return the updated product  
 		return new ResponseEntity<>(savedApplication, HttpStatus.OK) ;		
 	}
+	
 }
