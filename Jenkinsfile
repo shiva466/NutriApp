@@ -9,10 +9,12 @@ agent any
 		{
 			steps
 			{
+				 withSonarQubeEnv('nutrisonar') {
 				withMaven(maven:'Maven_Home')
 				{
-					bat "mvn sonar:sonar -Dsonar.host=http://localhost:9000 -Dsonar.login=jenkins-sonar"
+					bat "mvn sonar:sonar"
 				}
+				 }
 			}
 		}
 	} 
