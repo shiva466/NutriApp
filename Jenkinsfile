@@ -8,9 +8,8 @@ stages
     {
    withSonarQubeEnv(installationName: 'nutrisonar')
     	{
-		sh 'pwd'
-		sh 'ls'
-  		sh 'mvn clean sonar:sonar'
+	
+  		sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     	}
 	}
   }
