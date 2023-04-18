@@ -16,7 +16,7 @@ agent any
 		
 		stage('Mock Test') {
             steps {
-                sh 'mvn test -Dtest=com.example.MockTest'
+                sh 'mvn test -Dtest=ait.student.nutrition'
             }
         }
 		
