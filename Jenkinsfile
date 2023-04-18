@@ -6,13 +6,22 @@ agent any
 	       }
 	stages
 	{
-		stage('Build') 
-		{
-           	 steps 
-			{
-                	sh 'mvn clean package'
-            		}
-        	}
+		stage('Maven install') {
+ 
+      steps 
+	{
+        // Get some code from a GitHub repository
+        git branch: 'main', url: 'https://github.com/shiva466/NutriApp.git'
+ 
+        // Run Maven on a Unix agent.
+        // sh "mvn -Dmaven.test.failure.ignore=true clean package"
+        withMaven(
+          maven: 'maven'
+        ) {
+          // To run Maven on a Windows agent, use
+          bat "mvn -Dmaven.test.skip=true install"
+        }
+      }
 		
 		stage('Mock Test') {
             steps {
