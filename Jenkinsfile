@@ -9,10 +9,10 @@ agent any
 		{
 			steps
 			{
-				withMaven(maven:'maven')
-				{
-					bat "mvn sonar:sonar"
-				}
+				withSonarQubeEnv(installationName: 'nutrisonar')
+    	{
+  		sh 'mvn clean sonar:sonar'
+    	}
 			}
 		}
 	} 
