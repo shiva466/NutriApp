@@ -10,7 +10,7 @@ agent any
 			steps
 			{
 				 withSonarQubeEnv('nutrisonar') {
-				withMaven(maven:'Maven_Home')
+				withMaven(maven:'maven')
 				{
 					bat "mvn sonar:sonar"
 				}
