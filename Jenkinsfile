@@ -49,6 +49,26 @@ agent any
 				bat 'docker build -t nutritionapp:latest .'
 			}
 		}
+		stage('docker image tag')
+		{
+			agent any
+			{
+				steps
+				{
+					bat 'docker tag nutritionapp:latest saishiva466/nutritionapp:latest'
+				}
+			}
+		}
+		stage('docker push')
+		{
+			agent any
+			{
+				steps
+				{
+					bat 'docker push saishiva466/nutritionapp:latest'
+				}
+			}
+		}
 		
 	}
 }
