@@ -42,7 +42,7 @@ agent any
 		{
 			steps
 			{
-				bat 'docker build -t NutritionApp:latest .'
+				bat 'docker build -t nutritionapp:latest .'
 			}
 		}
 		
