@@ -6,18 +6,7 @@ agent any
 	       }
 	stages
 	{
-		stage('maven build')
-		{
-			steps
-			{
-				git branch: 'main', url: 'https://github.com/shiva466/NutriApp.git'
-				withMaven(maven:'maven')
-				{
-					bat "mvn test"
-				}
-			}
-			
-		}
+		
 		stage('scan pages')
 		{
 			steps
