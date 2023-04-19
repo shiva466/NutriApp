@@ -94,12 +94,7 @@
 	    <artifactId>maven-surefire-plugin</artifactId>
 				<!-- JUnit 5 requires Surefire version 2.22.0 or higher -->
 		<version>2.22.0</version>
-	      <configuration>
-                <skipTests>false</skipTests>
-                <excludes>
-                    <exclude>**/Test*.java</exclude>
-                </excludes>
-            </configuration>
+	      
 	  </plugin>
 	  <plugin>
 		<artifactId>maven-failsafe`-plugin</artifactId>
