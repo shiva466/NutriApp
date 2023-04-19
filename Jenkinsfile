@@ -6,8 +6,28 @@ agent any
 	       }
 	stages
 	{
+		stage('maven install and test')
+		{
+			steps
+			{
+				withMaven(maven:'maven')
+				{
+					bat "mvn -Dmaven.test.skip=true install"
+				}
+			}
+			post
+			{
+				success
+				{
+					junit '*/target/surefire-reports/TEST-.xml'
+					archiveArtifacts 'target/*.jar'
+				}
+			}
+		}
+				
+				
 		
-		stage('scan pages')
+		stage('Sonar scan')
 		{
 			steps
 			{
