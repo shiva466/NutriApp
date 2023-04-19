@@ -39,10 +39,9 @@ agent any
 		}
 		stage('docker build')
 		{
-			agent any
-			steps
+			script
 			{
-				bat 'docker build -t NutitionApp:latest .'
+				sh 'docker build -t NutitionApp:latest .'
 			}
 		}
 		
