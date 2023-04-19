@@ -41,10 +41,7 @@ agent any
 		{
 			steps
 			{
-			script
-			{
-				sh 'docker build -t NutitionApp:latest .'
-			}
+				bat 'docker build -t NutitionApp:latest .'
 			}
 		}
 		
