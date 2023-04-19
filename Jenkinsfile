@@ -39,9 +39,12 @@ agent any
 		}
 		stage('docker build')
 		{
+			steps
+			{
 			script
 			{
 				sh 'docker build -t NutitionApp:latest .'
+			}
 			}
 		}
 		
