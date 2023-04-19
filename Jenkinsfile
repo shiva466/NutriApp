@@ -39,13 +39,11 @@ agent any
 		}
 		stage('docker build')
 		{
-		agent any
-		{
-			      steps
-			      {
-				      bat 'docker build -t NutritionApp:latest .'
-			      }
-		      }
+			agent any
+			steps
+			{
+				bat 'docker build -t NutitionApp:latest .'
+			}
 		}
 		
 	}
