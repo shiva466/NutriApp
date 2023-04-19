@@ -12,7 +12,7 @@ agent any
 			{
 				withMaven(maven:'maven')
 				{
-					bat "mvn -Dmaven.test.skip=true install"
+					bat "mvn clean install"
 				}
 			}
 			post
