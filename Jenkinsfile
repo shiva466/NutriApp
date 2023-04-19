@@ -56,6 +56,13 @@ agent any
 				bat 'docker tag nutritionapp:latest saishiva466/nutritionapp:latest'
 			}
 		}
+		stage('docker login')
+		{
+			steps
+			{
+				bat 'echo | set /p ="***" | docker login --username saishiva466 --password Choco@2014'
+			}
+		}
 		stage('docker push')
 		{
 			steps
