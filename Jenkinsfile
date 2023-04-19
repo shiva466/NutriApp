@@ -51,22 +51,16 @@ agent any
 		}
 		stage('docker image tag')
 		{
-			agent any
+			steps
 			{
-				steps
-				{
-					bat 'docker tag nutritionapp:latest saishiva466/nutritionapp:latest'
-				}
+				bat 'docker tag nutritionapp:latest saishiva466/nutritionapp:latest'
 			}
 		}
 		stage('docker push')
 		{
-			agent any
+			steps
 			{
-				steps
-				{
-					bat 'docker push saishiva466/nutritionapp:latest'
-				}
+				bat 'docker push saishiva466/nutritionapp:latest'
 			}
 		}
 		
