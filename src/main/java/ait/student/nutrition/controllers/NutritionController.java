@@ -41,62 +41,13 @@ public class NutritionController
 	{ 
 		return repo.findById(id); 
 	}
-
-	@RequestMapping(value = "/supplierbycode/{item_code}",method = RequestMethod.GET) 
-	public List<supplier> getApplication(@PathVariable(value="item_code") String item_code) 
-	{
-	    return repo.findByItemCode(item_code);
-	}
-	@RequestMapping(value = "/suppliername/{supplier_name}",method = RequestMethod.GET) 
-	public List<supplier> getApplication1(@PathVariable(value="supplier_name") String supplier_name) 
-	{	
-	    return repo.findBySupplier(supplier_name);
-	}
-	 
-	@GetMapping(value = "/items/{item}") 
-	public List<supplier> getApplication2(@PathVariable(value="item") String item) 
-	{	
-		return repo.findByItem(item);
-	}
-		 
 	
 	@RequestMapping(value = "/supplier", method = RequestMethod.POST)
 	public supplier create(@RequestBody supplier supplier)
 	{
 		return repo.save(supplier);
 	}
-	@DeleteMapping(value="/supplier/{id}")
-	ResponseEntity<supplier> deleteApplication(@PathVariable("id") Long id) {
-
-		// First fetch an existing Application and then delete it. 
-		Optional<supplier> optionalApplication = repo.findById(id); 
-		supplier existingApplication=optionalApplication.get();
-
-		// Return the deleted wine 
-		repo.delete(existingApplication);
-		return new ResponseEntity<>(HttpStatus.NO_CONTENT) ;		
-	}
-
-	@PutMapping(value="/supplier/{id}")
-	ResponseEntity<supplier> updateApplication(@PathVariable("id") Long id, @RequestBody supplier application) {
-
-		// First fetch an existing wine and then modify it. 
-		Optional<supplier> optionalSupplier = repo.findById(id); 
-		supplier existingSupplier = optionalSupplier.get();
-
-		// Now update it back 
-		existingSupplier.setId(application.getId());
-		existingSupplier.setSupplier_name(application.getSupplier_name());
-		existingSupplier.setItem(application.getItem());
-		existingSupplier.setItem_code(application.getItem_code());
-		existingSupplier.setManufacting_cost(application.getManufacting_cost());
-		existingSupplier.setSelling_cost(application.getSelling_cost());
-		existingSupplier.setProfit_gained(application.getProfit_gained());
-
-		supplier savedApplication = repo.save(existingSupplier) ;
-		// Return the updated product  
-		return new ResponseEntity<>(savedApplication, HttpStatus.OK) ;		
-	}
+	
 	
 	
 }
