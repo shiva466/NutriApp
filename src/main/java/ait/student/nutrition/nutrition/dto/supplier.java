@@ -34,18 +34,6 @@ public class supplier {
 		this.selling_cost = selling_cost;
 		this.profit_gained = profit_gained;
 	}
-	
-	   
-	  
-	 
-	
-	/*
-	 * public supplier(long Id, String supplier_name, String item, String item_code,
-	 * String manufacting_cost, String selling_cost, String profit_gained) {
-	 * this.Id= Id; this.supplier_name = supplier_name; this.item = item;
-	 * this.item_code =item_code; this.manufacting_cost = manufacting_cost;
-	 * this.selling_cost = selling_cost; this.profit_gained = profit_gained; }
-	 */
 
 	public Long getId() 
 	  {

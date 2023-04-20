@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,7 @@ import ait.student.nutrition.rep.NutritionRepository;
 @Service
 @RequestMapping("/")
 
-public class NutritionController 
-{
+public class NutritionController {
 	@Autowired
 	NutritionRepository repo;
 	@GetMapping(value="/getsuppliers")
@@ -41,13 +41,44 @@ public class NutritionController
 	{ 
 		return repo.findById(id); 
 	}
-	
-	@RequestMapping(value = "/supplier", method = RequestMethod.POST)
-	public supplier create(@RequestBody supplier supplier)
+
+	@RequestMapping(value = "/supplierbycode/{item_code}",method = RequestMethod.GET) 
+	public List<supplier> getApplication(@PathVariable(value="item_code") String item_code) 
 	{
-		return repo.save(supplier);
+		
+		
+	    return repo.findByItemCode(item_code);
 	}
+	@RequestMapping(value = "/suppliername/{supplier_name}",method = RequestMethod.GET) 
+	public List<supplier> getApplication1(@PathVariable(value="supplier_name") String supplier_name) 
+	{
+		
+		
+	    return repo.findBySupplier(supplier_name);
+	}
+	 
+	@GetMapping(value = "/items/{item}") 
+	public List<supplier> getApplication2(@PathVariable(value="item") String item) 
+	{		
+		return repo.findByItem(item);
+	}
+		 
 	
+	@PostMapping(value = "/supplier")
+	public supplier create1(@RequestBody supplier supplierpost) {
+	    supplier newSupplier = new supplier();
+	    newSupplier.setSupplier_name(supplierpost.getSupplier_name());
+	    newSupplier.setItem(supplierpost.getItem());
+	    newSupplier.setItem_code(supplierpost.getItem_code());
+	    newSupplier.setManufacting_cost(supplierpost.getManufacting_cost());
+	    newSupplier.setSelling_cost(supplierpost.getSelling_cost());
+	    newSupplier.setProfit_gained(supplierpost.getProfit_gained());
+	    return repo.save(newSupplier);
+	}
+	/*
+		 * public supplier create(@RequestBody supplier supplierpost) { return
+		 * repo.save(supplierpost); }
+		 */
 	
 	
 }
