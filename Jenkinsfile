@@ -70,11 +70,13 @@ agent any
 				bat 'docker push saishiva466/nutritionapp:latest'
 			}
 		}
+		stage('Email Notification')
+		{
+			steps
+			{
+				 emailext body: 'The pipeline job has completed successfully', subject: 'Pipeline job successful notification', to: 'shiva.ayyala@gmail.com'
+			}
+		}
 		
 	}
-}
-post {
-  success {
-    emailext body: 'The pipeline job has completed successfully', subject: 'Pipeline job successful notification', to: 'shiva.ayyala@gmail.com'
-  }
 }
