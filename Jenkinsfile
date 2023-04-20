@@ -73,3 +73,8 @@ agent any
 		
 	}
 }
+post {
+  success {
+    emailext body: 'The pipeline job has completed successfully', subject: 'Pipeline job successful notification', to: 'shiva.ayyala@gmail.com'
+  }
+}
